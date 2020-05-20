@@ -1,10 +1,10 @@
 import os
 
-# os.getcwd => gets current directory
+# __file__ => gets current file
 # os.pardir => system independent function for ../
 # os.path.join => gets the parent directory
 # os.path.abspath => gets absolute path of a file
-BASE_DIR = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
+BASE_DIR = os.path.abspath(os.path.join(__file__, os.pardir, os.pardir))
 
 # the directory containing templates
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
@@ -20,9 +20,9 @@ DATA_FILE_NAME = 'student_list.xlsx'
 # path to a data file
 DATA_FILE_PATH = os.path.join(DATA_DIR, DATA_FILE_NAME)
 
-ID_FIELD = ''
-NAME_FIELD = ''
-SURNAME_FIELD = ''
-GENDER_FIELD = ''
-DATE_FIELD = ''
+ID_FIELD = 'School ID'
+NAME_FIELD = 'Name'
+SURNAME_FIELD = 'Surname'
+GENDER_FIELD = 'Gender'
+DATE_FIELD = 'Date of Birth'
 GRADE_FIELD = ''
