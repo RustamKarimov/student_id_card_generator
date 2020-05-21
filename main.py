@@ -1,5 +1,5 @@
-from packages import data_readers as dr
-from packages import pdf_proccessors as pp
+from pdf_packages import data_readers as dr
+from pdf_packages import pdf_proccessors as pp
 
 
 def create_student_cards():

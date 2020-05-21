@@ -1,5 +1,6 @@
 import io
 import os
+import pyqrcode  # pypng module also must be installed
 
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
@@ -7,7 +8,7 @@ from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
-from .constants import TEMPLATE_FILE_PATH, IMAGES_DIR
+from .constants import TEMPLATE_FILE_PATH, IMAGES_DIR, QR_IMAGE_PATH
 from .constants import FIELDS, PAGESIZE, POSITIONS, IMAGE_HEIGHT, IMAGE_WIDTH
 from .constants import FONT, FONT_SIZE, FONT_COLOR
 
@@ -26,6 +27,12 @@ def get_canvas(packet):
     return can
 
 
+def get_qr_code(school_id, name, surname):
+    data = f"{school_id} - {name} {surname.upper()}"
+    qr_image = pyqrcode.create(data)
+    qr_image.png(QR_IMAGE_PATH)
+
+
 def write_info_on_canvas(can, learner):
     school_id = learner[FIELDS['ID']]
     name = learner[FIELDS['NAME']]
@@ -42,6 +49,9 @@ def write_info_on_canvas(can, learner):
     can.drawString(*POSITIONS['DATE'], dob)
     if os.path.exists(image_file_path):
         can.drawImage(image_file_path, *POSITIONS['IMAGE'], IMAGE_WIDTH, IMAGE_WIDTH)
+
+    get_qr_code(school_id, name, surname)
+    can.drawImage(QR_IMAGE_PATH, *POSITIONS['QR'])
 
 
 def create_info_pdf(learner):

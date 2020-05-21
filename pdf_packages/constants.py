@@ -9,6 +9,7 @@ from reportlab.lib.units import mm
 BASE_DIR = os.path.abspath(os.path.join(__file__, os.pardir, os.pardir))
 
 IMAGES_DIR = os.path.join(BASE_DIR, 'images')
+QR_IMAGE_PATH = os.path.join(IMAGES_DIR, 'qr_image.png')
 
 # the directory containing templates
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
@@ -40,6 +41,7 @@ POSITIONS = {
     'GENDER': (40*mm, 23.70*mm),
     'DATE': (44*mm, 17.8*mm),
     'IMAGE': (3.2*mm, 17.3*mm),
+    'QR': (65*mm, 5*mm)
 }
 
 PAGE_WIDTH = 85.59*mm
