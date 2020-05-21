@@ -1,10 +1,14 @@
 import os
 
+from reportlab.lib.units import mm
+
 # __file__ => gets current file
 # os.pardir => system independent function for ../
 # os.path.join => gets the parent directory
 # os.path.abspath => gets absolute path of a file
 BASE_DIR = os.path.abspath(os.path.join(__file__, os.pardir, os.pardir))
+
+IMAGES_DIR = os.path.join(BASE_DIR, 'images')
 
 # the directory containing templates
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
@@ -28,3 +32,24 @@ FIELDS = {
     'DATE': 'Date of Birth',
     'GRADE': 'Grade'
 }
+
+POSITIONS = {
+    'ID': (41*mm, 41.18*mm),
+    'NAME': (38*mm, 35.3*mm),
+    'SURNAME': (41*mm, 29.41*mm),
+    'GENDER': (40*mm, 23.70*mm),
+    'DATE': (44*mm, 17.8*mm),
+    'IMAGE': (3.2*mm, 17.3*mm),
+}
+
+PAGE_WIDTH = 85.59*mm
+PAGE_HEIGHT = 53.98*mm
+PAGESIZE = (PAGE_WIDTH, PAGE_HEIGHT)
+
+IMAGE_WIDTH = 25.9*mm
+IMAGE_HEIGHT = 25.9*mm
+
+FONT = 'Calibri'
+FONT_SIZE = 6
+
+FONT_COLOR = (0, 0, 0)
