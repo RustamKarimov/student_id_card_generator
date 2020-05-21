@@ -20,9 +20,11 @@ DATA_FILE_NAME = 'student_list.xlsx'
 # path to a data file
 DATA_FILE_PATH = os.path.join(DATA_DIR, DATA_FILE_NAME)
 
-ID_FIELD = 'School ID'
-NAME_FIELD = 'Name'
-SURNAME_FIELD = 'Surname'
-GENDER_FIELD = 'Gender'
-DATE_FIELD = 'Date of Birth'
-GRADE_FIELD = ''
+FIELDS = {
+    'ID': 'School ID',
+    'NAME': 'Name',
+    'SURNAME': 'Surname',
+    'GENDER': 'Gender',
+    'DATE': 'Date of Birth',
+    'GRADE': 'Grade'
+}
